@@ -1,0 +1,100 @@
+/* Improved Header Styling */
+.header {
+    height: 34vw;
+    width: 100%; /* Full width for responsiveness */
+    margin: 0 auto; /* Center the header */
+    background: url('/header_img.png') no-repeat center center; 
+    background-size: cover; /* Ensures the image fully covers the header */
+    position: relative;
+    margin-top: 1px;
+    display: flex;
+    justify-content: center; /* Centers contents horizontally */
+    align-items: center; /* Centers contents vertically */
+    text-align: center; /* Centers text inside the contents */
+}
+
+.header-contents {
+    position: relative; /* No need for absolute positioning */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers child elements horizontally */
+    justify-content: flex-end; /* Aligns content close to image ending line */
+    gap: 1.5vw;
+    max-width: 70%; /* Increased max width for better readability */
+    padding: 2rem; /* Add padding to create space around the contents */
+    background: transparent; /* Removed see-through black background */
+    border-radius: 10px; /* Slightly rounded corners */
+    animation: fadeIn 3s;
+}
+
+.header-contents h2 {
+    font-weight: 600; /* Bolder for better visibility */
+    color: white;
+    font-size: max(2vw, 24px); /* Increased font size for better readability */
+    padding: 0.5rem 1rem; /* Padding inside the h2 for better spacing */
+    border-radius: 5px; /* Rounded corners for modern look */
+    text-align: center;
+}
+
+.header-contents p {
+    font-size: 1.2rem;
+    color: #f0f0f0;
+    line-height: 1.6;
+}
+
+.header-contents button {
+    padding: 1rem 2rem; /* Increased padding for larger, more clickable button */
+    font-size: 1rem;
+    color: white;
+    background-color: #de0f3f;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.header-contents button:hover {
+    background-color: #c00e36; /* Slightly darker shade on hover */
+    transform: translateY(-3px); /* Adds lift effect on hover */
+}
+
+/* Media Queries for Better Responsiveness */
+@media (max-width: 1050px) {
+    .header {
+        height: 40vw; /* Increase height for smaller screens */
+    }
+    
+    .header-contents {
+        max-width: 80%;
+    }
+}
+
+@media (max-width: 750px) {
+    .header {
+        height: 50vw; /* Increase height for better layout on mobile */
+    }
+    
+    .header-contents {
+        max-width: 90%; /* More width for better readability */
+        padding: 1.5rem; /* Reduced padding for smaller screens */
+        justify-content: flex-end; /* Ensures alignment is consistent on smaller screens */
+    }
+    
+    .header-contents p {
+        display: none; /* Hide paragraph text on smaller screens */
+    }
+    
+    .header-contents h2 {
+        font-size: max(4vw, 20px); /* Smaller font size for mobile */
+    }
+    
+    .header-contents button {
+        padding: 0.8rem 1.6rem; /* Reduced button size on mobile */
+    }
+}
+
+/* Keyframe for Fade-In Animation */
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}

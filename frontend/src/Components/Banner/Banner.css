@@ -1,0 +1,38 @@
+.banner {
+    background-color: #de0f3f;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    position: relative; 
+  }
+  
+  /* Adjusted text style */
+  .banner-text {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: white;
+    white-space: nowrap;
+    display: inline-block;
+    margin-right: 50px; 
+    animation: scroll-banner 20s linear infinite;
+  }
+  
+  /* Style for the image within the text */
+  .icon {
+    height: 20px; /* Adjust the height as necessary */
+    width: auto;
+    vertical-align: middle; /* Aligns the image with text */
+    margin-right: 10px; /* Adds space between the image and text */
+  }
+  
+
+  @keyframes scroll-banner {
+    0% {
+      transform: translateX(100%); 
+    }
+    100% {
+      transform: translateX(-100%); 
+    }
+  }
+  

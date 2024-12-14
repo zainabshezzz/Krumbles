@@ -1,0 +1,98 @@
+.explore-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .explore-menu h1 {
+    padding-top: 30px;
+    color: #262626;
+    font-weight: 500;
+  }
+  
+  .explore-menu-list {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 25px;
+    text-align: right;
+    margin: 5px 0px;
+  }
+  
+  .explore-menu-list-item {
+    width: 7.5vw;
+    min-width: 80px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: transform 0.3s ease-in-out; /* Transition for zoom effect */
+    text-align: center; /* Ensures text is aligned properly */
+    display: flex; /* Flexbox for vertical alignment */
+    flex-direction: column; /* Stack image and text vertically */
+    align-items: center; /* Center items horizontally */
+    justify-content: center; /* Center items vertically */
+    gap: 8px; /* Add space between image and text */
+  }
+  
+  .explore-menu-list-item img {
+    width: 100%; /* Ensure the image fits its container */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Ensure the image scales nicely */
+    border-radius: 50%; /* Make the image circular */
+  }
+  
+  .explore-menu-list-item p {
+    margin: 0; /* Remove default margin */
+    color: #504d4d;
+    font-size: max(1.4vw, 16px);
+    cursor: pointer;
+    text-align: center; /* Center text */
+  }
+  
+  
+  .explore-menu-list-item:hover, 
+  .explore-menu-list-item.active {
+    transform: scale(1.1);  /* Zoom in effect */
+  }
+  
+  .explore-menu-list-item.active {
+    position: relative;
+    z-index: 1;  /* Keeps the active item on top */
+  }
+  
+  .explore-menu-list-item.active::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #de0f3f;  /* Underline color */
+  }
+  
+  .explore-menu-list img {
+    flex: 1 1 100%;
+    max-width: 150%;
+  }
+  
+  .explore-menu hr {
+    margin: 10px 0px;
+    height: 2px;
+    background-color: #e2e2e2;
+    border: none;
+  }
+  
+  @media (max-width: 750px) {
+    .explore-menu h1 {
+      font-size: 20px;
+    }
+  
+    .explore-menu-list {
+      text-align: center;
+    }
+  
+    .explore-menu-list img {
+      flex: 1 1 100%;
+      max-width: 100%;
+    }
+  }
+  

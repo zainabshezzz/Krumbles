@@ -1,0 +1,21 @@
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 4%;
+}
+
+.navbar img{
+    height: 120px;
+}
+
+.navbar p{
+    font-size: 43px;
+}
+
+@media (max-width:900px) {
+    .navbar p{
+        text-align: center;
+        font-size: 25px;
+    }
+}
