@@ -24,8 +24,8 @@
     min-width: 80px;
     cursor: pointer;
     border-radius: 50%;
-    transition: transform 0.3s ease-in-out; /* Transition for zoom effect */
-    text-align: center; /* Ensures text is aligned properly */
+    transition: transform 0.3s ease-in-out; 
+    text-align: center; 
     display: flex; /* Flexbox for vertical alignment */
     flex-direction: column; /* Stack image and text vertically */
     align-items: center; /* Center items horizontally */
