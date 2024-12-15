@@ -3,9 +3,10 @@ import './PlaceOrder.css';
 import { StoreContext } from '../../Context/StoreContext';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2'; // Import SweetAlert2
 
 const PlaceOrder = () => {
-  const { getTotalCartAmount, token, food_list, cartItems,setcartItems, url } = useContext(StoreContext);
+  const { getTotalCartAmount, token, food_list, cartItems, setcartItems, url } = useContext(StoreContext);
   const [data, setData] = useState({
     firstName: '',
     lastName: '',
@@ -47,18 +48,42 @@ const PlaceOrder = () => {
       paymentMethod: paymentMethod, // Include selected payment method
     };
 
-    let response = await axios.post(url + '/api/order/place', orderData, { headers: { token } });
-    if (response.data.success) {
-      if (paymentMethod === 'stripe') {
-        const { session_url } = response.data;
-        window.location.replace(session_url);
-      } else if (paymentMethod === 'cod') {
-        alert("Order placed successfully with Cash on Delivery");
-        setcartItems({});
-        navigate('/myorders'); // Navigate to a success page for COD
+    try {
+      let response = await axios.post(url + '/api/order/place', orderData, { headers: { token } });
+      if (response.data.success) {
+        if (paymentMethod === 'stripe') {
+          const { session_url } = response.data;
+          window.location.replace(session_url);
+        } else if (paymentMethod === 'cod') {
+          Swal.fire({
+            title: 'Order Placed Successfully!',
+            text: 'Your order has been placed successfully with Cash on Delivery.',
+            icon: 'success',
+            confirmButtonText: 'View My Orders',
+            confirmButtonColor: '#3085d6',
+            backdrop: true
+          }).then(() => {
+            setcartItems({});
+            navigate('/myorders'); // Navigate to the success page for COD
+          });
+        }
+      } else {
+        Swal.fire({
+          title: 'Error',
+          text: 'Something went wrong while placing your order.',
+          icon: 'error',
+          confirmButtonText: 'Try Again',
+          confirmButtonColor: '#d33'
+        });
       }
-    } else {
-      alert("error");
+    } catch (error) {
+      Swal.fire({
+        title: 'Network Error',
+        text: 'Unable to connect to the server. Please try again later.',
+        icon: 'error',
+        confirmButtonText: 'Okay',
+        confirmButtonColor: '#d33'
+      });
     }
   };
 
@@ -112,7 +137,6 @@ const PlaceOrder = () => {
           </div>
         </div>
 
-        {/* Payment Method Selection */}
         <div className="payment-method">
           <h3>Select Payment Method</h3>
           <label>
@@ -140,5 +164,3 @@ const PlaceOrder = () => {
     </form>
   );
 }
-
-export default PlaceOrder;
