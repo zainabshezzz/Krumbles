@@ -29,8 +29,9 @@
 }
 
 .my-orders-order p b{
-    font-weight: 500;
+    font-weight: 200;
     color: #454545; 
+    font-size: 20px;
 }
 
 .my-orders-order button{
@@ -51,5 +52,8 @@
     }
     .my-orders-order button{
         font-size: 12px;
+    }
+    .my-orders-order p b{ 
+        font-size: 17px;
     }
 }
