@@ -59,9 +59,18 @@
     .footer-content{
         display: flex;
         flex-direction: column;
-        gap: 35px;
+        gap: 35px; 
     }
     .footer-copywrite{
         text-align: center;
+    }
+    .footer-content-left li, .footer-content-right li, .footer-content-center li{
+        font-size: 15px;
+    }
+    .footer-content-right h2, .footer-content-center h2{
+        font-size: 20px;
+    }
+    .footer-content-left p{
+        font-size: 17px;
     }
 }
